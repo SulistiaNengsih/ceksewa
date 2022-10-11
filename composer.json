@@ -1,0 +1,8 @@
+{
+    "name": "proyek_akhir_pbpu/cek_sewa",
+    "description": "Membantu menghitung biaya sewa sebuah produk, sekaligus menghitung denda jika melewati batas sewa",
+    "type": "n",
+    "license": "n",
+    "minimum-stability": "dev",
+    "require": {}
+}
