@@ -1,41 +1,49 @@
 <?php
 class Produk
 {
-  protected $id_produk;
-  protected $nama_produk;
-  protected $biaya_sewa;
-  protected $biaya_denda;
+  protected $idProduk;
+  protected $namaProduk;
+  protected $biayaSewa;
+  protected $biayaDenda;
 
-  function __construct($id_produk, $nama_produk, $biaya_sewa)
+  function __construct($idProduk, $namaProduk, $biayaSewa, $biayaDenda)
   {
-    $this->id_produk = $id_produk;
-    $this->nama_produk = $nama_produk;
-    $this->biaya_sewa = $biaya_sewa;
-    $biaya_denda = 2 * $biaya_sewa;
+    $this->idProduk = $idProduk;
+    $this->namaProduk = $namaProduk;
+    $this->biayaSewa = $biayaSewa;
+    $this->biayaDenda = $biayaDenda;
   }
 
   public function getIdProduk() {
-    return $this->id_produk;
+    return $this->idProduk;
   }
 
   public function getNamaProduk() {
-    return $this->nama_produk;
+    return $this->namaProduk;
   }
 
   public function getBiayaSewa() {
-    return $this->biaya_sewa;
+    return $this->biayaSewa;
   }
 
-  public function setIdProduk($id_produk) {
-    $this->id_produk = $id_produk;
+  public function getBiayaDenda() {
+    return $this->biayaDenda;
   }
 
-  public function setNamaProduk($nama_produk) {
-    $this->nama_produk = $nama_produk;
+  public function setIdProduk($idProduk) {
+    $this->idProduk = $idProduk;
   }
 
-  public function setBiayaSewa($harga_produk) {
-    $this->harga_produk = $biaya_sewa;
+  public function setNamaProduk($namaProduk) {
+    $this->namaProduk = $namaProduk;
+  }
+
+  public function setBiayaSewa($biayaSewa) {
+    $this->biayaSewa = $biayaSewa;
+  }
+
+  public function setBiayaDenda($biayaDenda) {
+    $this->biayaDenda = $biayaDenda;
   }
 }
  ?>
