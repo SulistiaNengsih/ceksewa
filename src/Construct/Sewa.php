@@ -8,8 +8,8 @@ class Sewa implements PenyewaanBarang {
   public $statusPengembalian;
   public $durasiSewa;
 
-  public __construct($idSewa, $idProduk, $namaProduk, $biayaSewa, $biayaDenda, $durasiSewa) {
-    $this->produk = new Produk($idProduk, $namaProduk, $biayaSewa, $biayaDenda);
+  public __construct($idSewa, $produk, $durasiSewa) {
+    $this->produk = $produk;
     $this->idSewa = $idSewa;
     $this->statusPengembalian = false;
     $this->durasiSewa = $durasiSewa;
