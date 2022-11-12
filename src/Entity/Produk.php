@@ -1,4 +1,6 @@
 <?php
+namespace kel6pbpu\ceksewa\Entity;
+
 class Produk
 {
   protected $idProduk;

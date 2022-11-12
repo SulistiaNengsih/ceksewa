@@ -1,6 +1,6 @@
 <?php
-require './Interface/PenyewaanBarang.php';
-require './Entity/Produk.php';
+namespace kel6pbpu\ceksewa\Construct;
+use kel6pbpu\ceksewa\Interface\PenyewaanBarang;
 
 class Sewa implements PenyewaanBarang {
   public $idSewa;
@@ -8,27 +8,26 @@ class Sewa implements PenyewaanBarang {
   public $statusPengembalian;
   public $durasiSewa;
 
-  public __construct($idSewa, $produk, $durasiSewa) {
+  function __construct($idSewa, $produk, $durasiSewa) {
     $this->produk = $produk;
     $this->idSewa = $idSewa;
     $this->statusPengembalian = false;
     $this->durasiSewa = $durasiSewa;
   }
 
-  public function calculatePrice($biaya = $this->produk->biayaSewa, $durasi = $this->durasiSewa, $durasiPengembalian) {
-    if (isTepatWaktu($durasiPengembalian) == true) {
+  public function calculatePrice($durasiPengembalian) {
+    $biaya = $this->produk->getBiayaSewa();
+    $durasi = $this->durasiSewa;
+
+    if ($durasiPengembalian > $this->durasiSewa) {
       return $biaya * $durasi;
     } else {
-      return ($biaya * $durasi) + (($durasiPengembalian - $durasiSewa) * $this->produk->biayaDenda));
+      return ($biaya * $durasi) + ($durasiPengembalian - $durasiSewa) * $this->produk->biayaDenda;
     }
   }
 
-  public function isTepatWaktu($durasiPengembalian) {
-    if ($durasiPengembalian > $this->durasiSewa) {
-      return false;
-    } else {
-      return true;
-    }
+  public function cekStatusPengembalian() {
+    return $this->statusPengembalian;
   }
 }
  ?>
