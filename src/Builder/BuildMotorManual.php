@@ -1,6 +1,9 @@
 <?php
-require 'Motor.php';
-  class BuildMotorMatic implements BuilderMotor{
+namespace kel6pbpu\ceksewa\Builder;
+use kel6pbpu\ceksewa\Entity\Motor as Motor;
+use kel6pbpu\ceksewa\Interface\BuilderMotor as BuilderMotor;
+
+  class BuildMotorManual implements BuilderMotor{
     private $motor;
     public function __construct() {
       $this->motor = new Motor();
@@ -20,6 +23,14 @@ require 'Motor.php';
 
     public function buildCcMesin() {
       $this->motor->setCcMesin("150 cc");
+    }
+
+    public function buildBiayaSewa($biayaSewa) {
+      $this->motor->setBiayaSewa($biayaSewa);
+    }
+
+    public function buildBiayaDenda($biayaDenda) {
+      $this->motor->setBiayaDenda($biayaDenda);
     }
 
     public function getResult() {

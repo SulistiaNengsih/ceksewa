@@ -3,14 +3,12 @@ namespace kel6pbpu\ceksewa\Construct;
 use kel6pbpu\ceksewa\Interface\PenyewaanBarang;
 
 class Sewa implements PenyewaanBarang {
-  public $idSewa;
   public $produk;
   public $statusPengembalian;
   public $durasiSewa;
 
-  function __construct($idSewa, $produk, $durasiSewa) {
+  function __construct($produk, $durasiSewa) {
     $this->produk = $produk;
-    $this->idSewa = $idSewa;
     $this->statusPengembalian = false;
     $this->durasiSewa = $durasiSewa;
   }
@@ -18,6 +16,7 @@ class Sewa implements PenyewaanBarang {
   public function calculatePrice($durasiPengembalian) {
     $biaya = $this->produk->getBiayaSewa();
     $durasi = $this->durasiSewa;
+    $this->statusPengembalian = true;
 
     if ($durasiPengembalian > $this->durasiSewa) {
       return $biaya * $durasi;

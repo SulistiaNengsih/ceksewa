@@ -5,5 +5,4 @@ namespace kel6pbpu\ceksewa\Interface;
     public function calculatePrice($durasiPengembalian);
     public function cekStatusPengembalian();
   }
-
 ?>
