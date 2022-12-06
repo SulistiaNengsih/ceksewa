@@ -3,14 +3,15 @@ namespace kel6pbpu\ceksewa\Builder;
 use kel6pbpu\ceksewa\Entity\Motor as Motor;
 use kel6pbpu\ceksewa\Interface\BuilderMotor as BuilderMotor;
 
-  class BuildMotorManual implements BuilderMotor{
+  class BuildMotorMatic125cc implements BuilderMotor{
     private $motor;
+
     public function __construct() {
       $this->motor = new Motor();
     }
 
     public function buildTipe() {
-      $this->motor->setTipe("manual");
+      $this->motor->setTipe("matic");
     }
 
     public function buildCcMesin() {
@@ -18,7 +19,7 @@ use kel6pbpu\ceksewa\Interface\BuilderMotor as BuilderMotor;
     }
 
     public function buildBiayaSewa() {
-      $this->motor->setBiayaSewa(49500);
+      $this->motor->setBiayaSewa(69500);
     }
 
     public function buildBiayaDenda() {

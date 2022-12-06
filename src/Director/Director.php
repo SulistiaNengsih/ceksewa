@@ -8,17 +8,15 @@ namespace kel6pbpu\ceksewa\Director;
       $this->builder = $builder;
     }
 
-    public function changeBuilder($builder) {
+    public function setBuilder($builder) {
       $this->builder = $builder;
     }
 
-    public function make($tipe, $merk, $tahun, $biayaSewa, $biayaDenda) {
+    public function make() {
       $this->builder->buildTipe();
-      $this->builder->buildMerk($merk);
-      $this->builder->buildTahun($tahun);
       $this->builder->buildCcMesin();
-      $this->builder->buildBiayaSewa($biayaSewa);
-      $this->builder->buildBiayaDenda($biayaDenda);
+      $this->builder->buildBiayaSewa();
+      $this->builder->buildBiayaDenda();
     }
 
     public function getBuilder() {

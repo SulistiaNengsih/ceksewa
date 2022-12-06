@@ -1,13 +1,30 @@
 {
-    "name": "kel6pbpu/cek_sewa",
-    "description": "Membantu menghitung biaya sewa sebuah produk, sekaligus menghitung denda jika melewati batas sewa",
+    "name": "kel6pbpu/ceksewa",
+    "description": "Membantu menghitung biaya sewa kendaraan, sekaligus menghitung denda jika melewati batas sewa",
     "type": "library",
     "license": "MIT",
+
+    "extra": {
+      "laravel": {
+        "providers": [
+          "kel6pbpu\\ceksewa\\CekSewaServiceProvider"
+        ],
+        "aliases": {
+          "Director": "kel6pbpu\\ceksewa\\Facades\\Director"
+        }
+      }
+    },
+    
+    "minimum-stability": "dev",
+    "require": {},
+
+    "require-dev": {
+      "orchestra/testbench": "^7.15"
+    },
+
     "autoload":{
       "psr-4":{
         "kel6pbpu\\ceksewa\\":"src/"
       }
-    },
-    "minimum-stability": "dev",
-    "require": {}
+    }
 }
