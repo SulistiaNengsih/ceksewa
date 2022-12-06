@@ -1,5 +1,5 @@
 <?php
-namespace kel6pbpu\ceksewa\Director;
+namespace kel6pbpu\ceksewa\builder\director;
 
   class Director {
     private $builder;
@@ -12,15 +12,17 @@ namespace kel6pbpu\ceksewa\Director;
       $this->builder = $builder;
     }
 
-    public function make() {
+    public function getBuilder() {
+      return $this->builder;
+    }
+
+    public function make($type) {
+      $this->builder->buildNama();
       $this->builder->buildTipe();
       $this->builder->buildCcMesin();
       $this->builder->buildBiayaSewa();
       $this->builder->buildBiayaDenda();
-    }
-
-    public function getBuilder() {
-      return $this->builder;
+      $this->builder->store();
     }
   }
 ?>

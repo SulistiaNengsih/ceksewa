@@ -1,33 +1,11 @@
 <?php
 namespace DummyNameSpace;
 
-use kel6pbpu\ceksewa\Entity\Motor as Motor;
-use kel6pbpu\ceksewa\Interface\BuilderMotor as BuilderMotor;
-
-class DummyClass implements BuilderMotor {
-    private $motor;
-    public function __construct() {
-      $this->motor = new Motor();
-    }
-
-    public function buildTipe() {
-      // tipe motor
-    }
-
-    public function buildCcMesin() {
-      // cc mesin
-    }
-
-    public function buildBiayaSewa() {
-      // biaya sewa
-    }
-
-    public function buildBiayaDenda() {
-      // biaya denda
-    }
-
-    public function getResult() {
-      return $this->motor;
-    }
+interface DummyClass {
+    /*
+        Define all of the methods you need for your builder here
+    */
+    public function buildSomething();
+    public function buildSomethingElse();
 }
 ?>

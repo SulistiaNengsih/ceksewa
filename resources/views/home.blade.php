@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Signin Template · Bootstrap v5.2</title>
+    <title>Sewa Produk</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
     <link href="{{asset('ceksewa/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -81,9 +81,6 @@
   <body class="text-center">
 
     <?php
-      $builderManual = new \kel6pbpu\ceksewa\Builder\BuildMotorManual();
-      $builderMatic110 = new \kel6pbpu\ceksewa\Builder\BuildMotorMatic110cc();
-
       function rupiah($angka){
         $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
         return $hasil_rupiah;
@@ -91,15 +88,19 @@
     ?>
     
     <main class="form-signin w-100 m-auto">
-      <form action="{{url('/calculate-price')}}">
+      <form action="{{url('/calculate')}}">
         <h1 class="h3 mb-3 fw-normal">Input Data Sewa</h1>
 
         <div class="form-floating">
-          <select class="form-select" id="jenisMotor" name="jenisMotor">
-            <option value="Motor Manual">Motor Manual</option>
-            <option value="Motor Matic 110cc">Motor Matic 110cc</option>
+          <select class="form-select" id="nama" name="nama">
+            <option value="">Produk Sewa...</option>
+            @foreach ($motor as $m)
+            <option value="{{$m->nama}}">{{$m->nama}}</option>
+            <input type="hidden" id="biayaSewa" name="biayaSewa" value="{{$m->biaya_sewa}}">
+            <input type="hidden" id="biayaDenda" name="biayaDenda" value="{{$m->biaya_denda}}">
+            @endforeach
           </select>
-          <label for="jenisMotor">Pilih jenis penyewaan</label>
+          <label for="nama">Pilih Produk Sewa</label>
         </div>
         <div class="form-floating" style="margin-top: 2%;">
           <input type="number" class="form-control" id="durasiSewa" name="durasiSewa">
@@ -111,35 +112,16 @@
         </div>
 
         <button class="w-100 btn btn-lg btn-warning" type="submit" style="margin-top: 5%;">Cek Biaya</button>
-        <a type="button" href="{{url('/')}}">Reset</a>
+        <a type="button" href="{{url('/build')}}">Build Produk</a>
+        <a type="button" href="{{url('/home')}}">Reset</a>
       </form>
 
-      @if (isset($jenisMotor) && isset($durasiSewa) && isset($durasiPengembalian))
-      @if($jenisMotor === "Motor Manual")
-        @php
-          $director = new \kel6pbpu\ceksewa\Director\Director($builderManual);
-          $director->make();
-          $motorManual = $director->getBuilder()->getResult();
-
-          $sewa = new \kel6pbpu\ceksewa\Construct\Sewa($motorManual, $durasiSewa);   
-        @endphp
-      @endif
-      @if($jenisMotor === "Motor Matic 110cc")
-        @php
-          $director = new \kel6pbpu\ceksewa\Director\Director($builderMatic110);
-          $director->make();
-          $motorMatic110 = $director->getBuilder()->getResult();
-
-          $sewa = new \kel6pbpu\ceksewa\Construct\Sewa($motorMatic110, $durasiSewa);   
-        @endphp
-      @endif
-      <p class="mt-5 mb-3">
-        Biaya sewa motor adalah {{rupiah($sewa->calculatePrice($durasiPengembalian))}}
-        Biaya denda motor adalah {{rupiah($sewa->cekDenda())}}
-      </p>
+      @if (isset($totalPrice))
+        Total biaya sewa {{$nama}} adalah {{rupiah($totalPrice)}}
+        Dengan denda sebesar {{rupiah($totalDenda)}}
       @endif
 
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 
     </main> 
   </body>

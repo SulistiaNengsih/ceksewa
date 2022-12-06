@@ -1,0 +1,16 @@
+<?php
+namespace DummyNameSpace;
+use kel6pbpu\ceksewa\builder\Builder;
+
+// kelas ini dapat mengimplement interface builder
+
+class DummyClass implements Builder {
+    public function buildSomething() {
+      // definisikan proses build
+    }
+
+    public function buildSomethingElse() {
+      // definisikan proses build
+    }
+}
+?>
