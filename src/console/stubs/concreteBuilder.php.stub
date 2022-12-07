@@ -2,7 +2,9 @@
 namespace DummyNameSpace;
 use kel6pbpu\ceksewa\builder\Builder;
 
-// kelas ini dapat mengimplement interface builder
+/*
+  > kelas ini dapat mengimplementasikan interface builder yang telah dibuat sebelumnya
+*/
 
 class DummyClass implements Builder {
     public function buildSomething() {

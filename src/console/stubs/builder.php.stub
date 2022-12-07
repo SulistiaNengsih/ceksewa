@@ -3,7 +3,7 @@ namespace DummyNameSpace;
 
 interface DummyClass {
     /*
-        Define all of the methods you need for your builder here
+        Definisikan seluruh metode abstrak yang dibutuhkan disini
     */
     public function buildSomething();
     public function buildSomethingElse();

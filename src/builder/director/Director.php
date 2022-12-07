@@ -17,12 +17,29 @@ namespace kel6pbpu\ceksewa\builder\director;
     }
 
     public function make($type) {
-      $this->builder->buildNama();
-      $this->builder->buildTipe();
-      $this->builder->buildCcMesin();
-      $this->builder->buildBiayaSewa();
-      $this->builder->buildBiayaDenda();
-      $this->builder->store();
+      if ($type === 'BuilderMotorManual' ^ $type === 'BuilderMotorMatic') {
+        $this->builder->buildNama();
+        $this->builder->buildTipe();
+        $this->builder->buildCcMesin();
+        $this->builder->buildBiayaSewa();
+        $this->builder->buildBiayaDenda();
+        $this->builder->store();
+      }
+      
+      /*
+        Tambahkan opsi builder lainnya disini
+        
+        Contoh:
+        else if ($type === 'builderSomething') {
+          $this->builder->buildStepA();
+          $this->builder->buildStepB();
+          $this->builder->buildStepC();
+        } else if ($type === 'builderAnotherThing) {
+          $this->builder->buildStepA();
+          $this->builder->buildStepB();
+          $this->builder->buildStepC();
+        }
+      */
     }
   }
 ?>

@@ -20,10 +20,11 @@ class BuildController extends Controller {
                 $director = new Director($builder);
                 $director->make($request->nama);
             }
-            // return view ('ceksewa::build', [
-            //     'builder' => DB::table('builder')->get()
-            // ])->with('successMsg','Data berhasil ditambahkan');
 
+            /*
+                Tambahkan opsi builder lainnya disini
+            */
+            
             return back()->with('successMsg','Data berhasil ditambahkan');
         } else {
             return view ('ceksewa::build', [

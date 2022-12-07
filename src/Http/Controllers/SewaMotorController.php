@@ -14,8 +14,6 @@ class SewaMotorController extends Controller {
     public function calculateTotalPrice(Request $request) {
         $totalSewa = 0;
         $totalDenda = 0;
-        // $biayaSewa = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_sewa');
-        // $biayaDenda = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_denda');
 
         $biayaSewa = Motor::where('nama', '=', $request->nama)->sum('biaya_sewa');
         $biayaDenda = Motor::where('nama', '=', $request->nama)->sum('biaya_denda');
