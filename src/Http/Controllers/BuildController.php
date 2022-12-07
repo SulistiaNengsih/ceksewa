@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
+/*
+    use namespace file builder yang diperlukan
+*/
+
 class BuildController extends Controller {
     public function buildProduk(Request $request) {
         
@@ -24,7 +28,7 @@ class BuildController extends Controller {
             /*
                 Tambahkan opsi builder lainnya disini
             */
-            
+
             return back()->with('successMsg','Data berhasil ditambahkan');
         } else {
             return view ('ceksewa::build', [
