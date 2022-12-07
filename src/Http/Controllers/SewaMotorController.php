@@ -2,6 +2,7 @@
 namespace kel6pbpu\ceksewa\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use kel6pbpu\ceksewa\models\Motor;
 
 class SewaMotorController extends Controller {
     public function show() {
@@ -13,8 +14,11 @@ class SewaMotorController extends Controller {
     public function calculateTotalPrice(Request $request) {
         $totalSewa = 0;
         $totalDenda = 0;
-        $biayaSewa = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_sewa');
-        $biayaDenda = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_denda');
+        // $biayaSewa = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_sewa');
+        // $biayaDenda = DB::table('motor')->where('nama', '=', $request->nama)->sum('biaya_denda');
+
+        $biayaSewa = Motor::where('nama', '=', $request->nama)->sum('biaya_sewa');
+        $biayaDenda = Motor::where('nama', '=', $request->nama)->sum('biaya_denda');
 
         $totalSewa = $biayaSewa * $request->durasiPengembalian;
         if ($request->durasiPengembalian > $request->durasiSewa) {
@@ -23,8 +27,8 @@ class SewaMotorController extends Controller {
 
         $totalPrice = $totalSewa + $totalDenda;
 
-        return view ('home', [
-            'motor' => DB::table('motor')->get(),
+        return view ('ceksewa::home', [
+            'motor' => Motor::get(),
             'totalPrice' => $totalPrice,
             'totalSewa' => $totalSewa,
             'totalDenda' => $totalDenda,

@@ -2,7 +2,6 @@
 namespace kel6pbpu\ceksewa\builder\concrete_builder;
 use kel6pbpu\ceksewa\models\Motor;
 use kel6pbpu\ceksewa\builder\BuilderMotor;
-use Illuminate\Support\Facades\DB;
 
   class BuilderMotorManual implements BuilderMotor{
     private Motor $motor;
