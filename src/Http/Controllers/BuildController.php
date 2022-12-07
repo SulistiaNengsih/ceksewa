@@ -5,6 +5,7 @@ use kel6pbpu\ceksewa\builder\concrete_builder\BuilderMotorManual;
 use kel6pbpu\ceksewa\builder\concrete_builder\BuilderMotorMatic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class BuildController extends Controller {
     public function buildProduk(Request $request) {
@@ -19,9 +20,11 @@ class BuildController extends Controller {
                 $director = new Director($builder);
                 $director->make($request->nama);
             }
-            return view ('ceksewa::build', [
-                'builder' => DB::table('builder')->get()
-            ])->with('successMsg','Data berhasil ditambahkan');
+            // return view ('ceksewa::build', [
+            //     'builder' => DB::table('builder')->get()
+            // ])->with('successMsg','Data berhasil ditambahkan');
+
+            return back()->with('successMsg','Data berhasil ditambahkan');
         } else {
             return view ('ceksewa::build', [
                 'builder' => DB::table('builder')->get()
