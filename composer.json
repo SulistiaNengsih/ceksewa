@@ -1,5 +1,5 @@
 {
-    "name": "kel6pbpu/ceksewa",
+    "name": "sulistianengsih/ceksewa",
     "description": "Membantu menghitung biaya sewa kendaraan, sekaligus menghitung denda jika melewati batas sewa",
     "type": "library",
     "license": "MIT",
@@ -8,10 +8,7 @@
       "laravel": {
         "providers": [
           "kel6pbpu\\ceksewa\\CekSewaServiceProvider"
-        ],
-        "aliases": {
-          "Director": "kel6pbpu\\ceksewa\\Facades\\Director"
-        }
+        ]
       }
     },
     
