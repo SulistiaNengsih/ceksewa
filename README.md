@@ -2,12 +2,15 @@
 Package ini berfungsi untuk menampilkan jumlah total biaya sewa suatu produk berdasarkan biaya sewa harian, biaya denda jika melewati batas durasi sewa, durasi sewa, dan durasi pengembalian.
 
 ## Installation and Usage
-1. Require package
+1. Install Composer\
+Sebelum memulai, anda diharuskan untuk menginstall composer terlebih dahulu, jika composer sudah terinstall sebelumnya. tahapan ini dapat diabaikan. Tutorial lebih lengkap dapat dilihat di [Composer Documentation](https://getcomposer.org/doc/).
+
+2. Require package
 ```
   composer require sulistianengsih/ceksewa
 ```
 
-2. Optionally publish package views, assets, or src
+3. Optionally publish package views, assets, or src
 ```
   php artisan vendor:publish
 ```
