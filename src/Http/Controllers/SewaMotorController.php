@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 class SewaMotorController extends Controller {
     public function show() {
-        return view ('home', [
+        return view ('ceksewa::home', [
             'motor' => DB::table('motor')->get()
         ]);
     }

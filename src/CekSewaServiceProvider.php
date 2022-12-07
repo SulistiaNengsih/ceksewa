@@ -18,19 +18,18 @@ class CekSewaServiceProvider extends ServiceProvider
   public function boot()
   {
     $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-    $this->loadViewsFrom(__DIR__.'/../resources/views', 'home');
-    $this->loadViewsFrom(__DIR__.'/../resources/views', 'build');
+    $this->loadViewsFrom(__DIR__.'/../resources/views', 'ceksewa');
     $this->commands([MakeBuilderCommand::class]);
     $this->commands([MakeConcreteBuilderCommand::class]);
     $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
   
     if ($this->app->runningInConsole()) {
       $this->publishes([
-        __DIR__.'/../resources/views' => resource_path('views'),
+        __DIR__.'/../resources/views' => resource_path('views/vendor/ceksewa'),
       ], 'views');
 
       $this->publishes([
-        __DIR__.'/../resources/assets' => public_path('ceksewa'),
+        __DIR__.'/../resources/assets' => public_path('/'),
       ], 'assets');
 
       $this->publishes([
