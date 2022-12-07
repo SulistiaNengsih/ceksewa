@@ -10,7 +10,12 @@ Sebelum memulai, anda diharuskan untuk menginstall composer terlebih dahulu, jik
   composer require sulistianengsih/ceksewa
 ```
 
-3. Optionally publish package views, assets, or src
+3. Database Migration
+```
+  php artisan migrate
+```
+
+4. Optionally publish package views, assets, or src
 ```
   php artisan vendor:publish
 ```
