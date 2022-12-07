@@ -19,6 +19,7 @@ class CekSewaServiceProvider extends ServiceProvider
   {
     $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'home');
+    $this->loadViewsFrom(__DIR__.'/../resources/views', 'build');
     $this->commands([MakeBuilderCommand::class]);
     $this->commands([MakeConcreteBuilderCommand::class]);
     $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');

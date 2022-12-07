@@ -8,6 +8,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
     <title>Sewa Produk</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('ceksewa/icon.ico')}}">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
     <link href="{{asset('ceksewa/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -96,8 +97,6 @@
             <option value="">Produk Sewa...</option>
             @foreach ($motor as $m)
             <option value="{{$m->nama}}">{{$m->nama}}</option>
-            <input type="hidden" id="biayaSewa" name="biayaSewa" value="{{$m->biaya_sewa}}">
-            <input type="hidden" id="biayaDenda" name="biayaDenda" value="{{$m->biaya_denda}}">
             @endforeach
           </select>
           <label for="nama">Pilih Produk Sewa</label>
@@ -117,8 +116,10 @@
       </form>
 
       @if (isset($totalPrice))
-        Total biaya sewa {{$nama}} adalah {{rupiah($totalPrice)}}
-        Dengan denda sebesar {{rupiah($totalDenda)}}
+        <div style="margin-top:3%;">
+          Total biaya sewa {{$nama}} adalah {{rupiah($totalPrice)}}
+          Dengan denda sebesar {{rupiah($totalDenda)}}
+        </div>
       @endif
 
       <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
